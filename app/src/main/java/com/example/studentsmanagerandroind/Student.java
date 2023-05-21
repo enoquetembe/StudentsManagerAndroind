@@ -3,12 +3,12 @@ package com.example.studentsmanagerandroind;
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    private String name, adress, gender;
+    private String name, address, gender;
     private int tel, age;
 
-    public Student(String name, String adress, String gender, int tel, int age) {
+    public Student(String name, String address, String gender, int tel, int age) {
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.gender = gender;
         this.tel = tel;
         this.age = age;
@@ -26,12 +26,12 @@ public class Student implements Serializable {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getGender() {
@@ -62,7 +62,7 @@ public class Student implements Serializable {
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
-                ", adress='" + adress + '\'' +
+                ", adress='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", tel=" + tel +
                 ", age=" + age +

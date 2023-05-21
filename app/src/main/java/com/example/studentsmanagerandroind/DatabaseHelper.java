@@ -48,14 +48,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void save(String name, int age, String gender, String adress, String telefone) {
+    public void save(String name, int age, String gender, String address, String telefone) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOME, name);
         values.put(COLUMN_IDADE, age);
         values.put(COLUMN_SEXO, gender);
-        values.put(COLUMN_MORADA, adress);
+        values.put(COLUMN_MORADA, address);
         values.put(COLUMN_TELEFONE, telefone);
 
         db.insert(TABLE_ALUNOS, null, values);
@@ -75,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 student.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NOME)));
                 student.setAge(cursor.getInt(cursor.getColumnIndex(COLUMN_IDADE)));
                 student.setGender(cursor.getString(cursor.getColumnIndex(COLUMN_SEXO)));
-                student.setAdress(cursor.getString(cursor.getColumnIndex(COLUMN_MORADA)));
+                student.setAddress(cursor.getString(cursor.getColumnIndex(COLUMN_MORADA)));
                 student.setTel(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_TELEFONE))));
                 students.add(student);
             } while (cursor.moveToNext());

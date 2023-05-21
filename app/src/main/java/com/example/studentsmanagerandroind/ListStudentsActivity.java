@@ -19,12 +19,12 @@ public class ListStudentsActivity extends AppCompatActivity {
         binding = ActivityListStudentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        /*databaseHelper = new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
 
         students = databaseHelper.getAllStudents();
 
-        StudentAdapter adapter = new StudentAdapter(this, students);
-        binding.lvStudents.setAdapter(adapter);*/
+        StudentAdapter adapter = new StudentAdapter( students, this);
+        binding.lvStudents.setAdapter(adapter);
 
 
     }
