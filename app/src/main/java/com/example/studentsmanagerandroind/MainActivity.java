@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
     public  void saveStudent() {
         String name = binding.txtName.getText().toString();
         int age = Integer.parseInt( binding.txtAge.getText().toString());
-        String adress =  binding.txtAdress.getText().toString();
+        String address =  binding.txtAdress.getText().toString();
         String telefone =  binding.txtTel.getText().toString();
 
         int radioButtonId =  binding.radioGroupSexo.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(radioButtonId);
         String gender = radioButton.getText().toString();
 
-        databaseHelper.save(name, age, gender, adress, telefone);
+        databaseHelper.save(name, age, gender, address, telefone);
 
         Toast.makeText(this, "Aluno salvo com sucesso!", Toast.LENGTH_SHORT).show();
     }
