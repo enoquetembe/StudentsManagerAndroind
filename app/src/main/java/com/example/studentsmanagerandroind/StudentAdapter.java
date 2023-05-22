@@ -48,6 +48,7 @@ public class StudentAdapter extends BaseAdapter {
             public void onClick(View v) {
                 // Intent para abrir a StudentDetailsActivity
                 Intent intent = new Intent(context, StudentDatailsActivity.class);
+                intent.putExtra("id", students.get(position).getId());
                 intent.putExtra("name", students.get(position).getName());
                 intent.putExtra("age", students.get(position).getAge());
                 intent.putExtra("sex", students.get(position).getGender());
