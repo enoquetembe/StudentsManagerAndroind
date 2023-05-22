@@ -86,5 +86,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return students;
     }
+
+    public void delete(String name) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        String whereClause = "name = ?";
+        String[] whereArgs = { name };
+        db.delete(TABLE_ALUNOS, whereClause, whereArgs);
+    }
 }
 

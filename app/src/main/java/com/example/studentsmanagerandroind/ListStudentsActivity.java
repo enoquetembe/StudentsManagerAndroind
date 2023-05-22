@@ -22,6 +22,7 @@ public class ListStudentsActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         students = databaseHelper.getAllStudents();
+        //System.out.println(students);
 
         StudentAdapter adapter = new StudentAdapter( students, this);
         binding.lvStudents.setAdapter(adapter);

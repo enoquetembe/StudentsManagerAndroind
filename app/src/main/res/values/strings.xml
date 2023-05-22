@@ -13,4 +13,6 @@
     <string name="insira_telefone">Insira o telefone do aluno</string>
     <string name="salvar">Salvar</string>
     <string name="listar">Listar</string>
+    <string name="atualizar">LAtualizar</string>
+    <string name="excluir">Excluir</string>
 </resources>

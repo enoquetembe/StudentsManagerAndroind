@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btnSave.setOnClickListener( v -> {
             saveStudent();
-            System.out.println(databaseHelper.getAllStudents());
         });
 
         binding.btnList.setOnClickListener( v-> {

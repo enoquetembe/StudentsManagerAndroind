@@ -1,6 +1,7 @@
 package com.example.studentsmanagerandroind;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,19 @@ public class StudentAdapter extends BaseAdapter {
         TextView textView_name = convertView.findViewById(R.id.textView_nome);
 
         textView_name.setText(students.get(position).getName());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent para abrir a StudentDetailsActivity
+                Intent intent = new Intent(context, StudentDatailsActivity.class);
+                intent.putExtra("name", students.get(position).getName());
+                intent.putExtra("age", students.get(position).getAge());
+                intent.putExtra("sex", students.get(position).getGender());
+                intent.putExtra("address", students.get(position).getAddress());
+                intent.putExtra("tel", students.get(position).getTel());
+                context.startActivity(intent);
+
+                }});
 
         return convertView;
     }
