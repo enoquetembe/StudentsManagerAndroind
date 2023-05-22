@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 public class Student implements Serializable {
     private String name, address, gender;
-    private int tel, age;
+    private int id, tel, age;
 
-    public Student(String name, String address, String gender, int tel, int age) {
+    public Student(String name, String address, String gender, int tel, int age, int id) {
         this.name = name;
         this.address = address;
         this.gender = gender;
         this.tel = tel;
         this.age = age;
+        this.id = id;
     }
 
     public Student() {
@@ -56,6 +57,13 @@ public class Student implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

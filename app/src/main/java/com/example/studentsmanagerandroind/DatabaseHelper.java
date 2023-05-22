@@ -72,6 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Student student = new Student();
+                student.setId(cursor.getInt(cursor.getColumnIndex(COLUMN_ID)));
                 student.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NOME)));
                 student.setAge(cursor.getInt(cursor.getColumnIndex(COLUMN_IDADE)));
                 student.setGender(cursor.getString(cursor.getColumnIndex(COLUMN_SEXO)));
@@ -96,17 +97,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void update(String name, int age, String gender, String address, int telefone) {
+    public void update(int id,String name, int age, String gender, String address, int telefone) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(COLUMN_NOME, name);
         values.put(COLUMN_IDADE, age);
         values.put(COLUMN_SEXO, gender);
         values.put(COLUMN_MORADA, address);
         values.put(COLUMN_TELEFONE, telefone);
 
-        String whereClause = "name = ?";
-        String[] whereArgs = { name };
+        String whereClause = "id = ?";
+        String[] whereArgs = { String.valueOf(id) };
+
 
         db.update(TABLE_ALUNOS, values, whereClause, whereArgs);
     }

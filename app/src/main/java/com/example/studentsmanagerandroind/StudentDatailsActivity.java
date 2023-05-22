@@ -24,6 +24,7 @@ public class StudentDatailsActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
         new Student();
+        binding.etDId.setEnabled(false);
         binding.etDName.setEnabled(false);
         binding.etDAge.setEnabled(false);;
         binding.etDSex.setEnabled(false);;
@@ -31,6 +32,8 @@ public class StudentDatailsActivity extends AppCompatActivity {
         binding.etDTel.setEnabled(false);
 
         Intent intent = getIntent();
+
+        int id = intent.getIntExtra("id", 0);
         String name = intent.getStringExtra("name");
         studentName = name;
         int age = intent.getIntExtra("age", 0);
@@ -38,6 +41,8 @@ public class StudentDatailsActivity extends AppCompatActivity {
         String address = intent.getStringExtra("address");
         int tel = intent.getIntExtra("tel", 0);
 
+
+        binding.etDId.setText(String.valueOf(id));
         binding.etDName.setText(name);
         binding.etDAge.setText(String.valueOf(age));
         binding.etDSex.setText(sex);
@@ -74,13 +79,14 @@ public class StudentDatailsActivity extends AppCompatActivity {
 
 
     private void updateStudent() {
+        int id = Integer.parseInt(binding.etDId.getText().toString().trim());
         String name = binding.etDName.getText().toString().trim();
         int age = Integer.parseInt(binding.etDAge.getText().toString().trim());
         String sex = binding.etDSex.getText().toString().trim();
         String address = binding.etDAdress.getText().toString().trim();
         int telefone = Integer.parseInt(binding.etDTel.getText().toString().trim());
 
-        databaseHelper.update(name, age, sex, address, telefone);
+        databaseHelper.update(id, name, age, sex, address, telefone);
 
         Toast.makeText(this, "Estudante atualizado com sucesso", Toast.LENGTH_SHORT).show();
         finish();
