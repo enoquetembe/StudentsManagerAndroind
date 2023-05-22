@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">StudentsManagerAndroind</string>
+    <string name="insira_aluno">Insira o nome do aluno</string>
+    <string name="nome_aluno">Nome do Aluno</string>
+    <string name="insira_idade">Insira a idade do aluno</string>
+    <string name="idade_aluno">Idade do Aluno</string>
+    <string name="sexo_aluno">Sexo do Aluno</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="morada_aluno">Morada do Aluno</string>
+    <string name="insira_morada">Insira a morada do aluno</string>
+    <string name="telefone_aluno">Telefone do Aluno</string>
+    <string name="insira_telefone">Insira o telefone do aluno</string>
+    <string name="salvar">Salvar</string>
+    <string name="listar">Listar</string>
+</resources>
