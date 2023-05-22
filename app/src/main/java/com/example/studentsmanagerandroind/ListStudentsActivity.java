@@ -4,11 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.studentsmanagerandroind.databinding.ActivityListStudentsBinding;
+
+import java.util.ArrayList;
+
 public class ListStudentsActivity extends AppCompatActivity {
 
+    ActivityListStudentsBinding binding;
+    ArrayList<Student> students;
+    private DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_students);
+        binding = ActivityListStudentsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        /*databaseHelper = new DatabaseHelper(this);
+
+        students = databaseHelper.getAllStudents();
+
+        StudentAdapter adapter = new StudentAdapter(this, students);
+        binding.lvStudents.setAdapter(adapter);*/
+
+
     }
 }

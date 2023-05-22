@@ -1,15 +1,21 @@
 package com.example.studentsmanagerandroind;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "AlunosDB";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_ALUNOS = "alunos";
+
+    public static  final String TABLE_NAME = "alunos";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NOME = "name";
     private static final String COLUMN_IDADE = "age";
@@ -54,6 +60,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_ALUNOS, null, values);
         db.close();
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Student> getAllStudents() {
+        ArrayList<Student> students = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Student student = new Student();
+                student.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NOME)));
+                student.setAge(cursor.getInt(cursor.getColumnIndex(COLUMN_IDADE)));
+                student.setGender(cursor.getString(cursor.getColumnIndex(COLUMN_SEXO)));
+                student.setAdress(cursor.getString(cursor.getColumnIndex(COLUMN_MORADA)));
+                student.setTel(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_TELEFONE))));
+                students.add(student);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return students;
     }
 }
 

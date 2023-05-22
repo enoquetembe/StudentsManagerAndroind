@@ -2,6 +2,7 @@ package com.example.studentsmanagerandroind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -18,8 +19,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseHelper = new DatabaseHelper(this);
+
         binding.btnSave.setOnClickListener( v -> {
             saveStudent();
+            System.out.println(databaseHelper.getAllStudents());
+        });
+
+        binding.btnList.setOnClickListener( v-> {
+            Intent intent = new Intent(MainActivity.this, ListStudentsActivity.class);
+            startActivity(intent);
         });
 
 
