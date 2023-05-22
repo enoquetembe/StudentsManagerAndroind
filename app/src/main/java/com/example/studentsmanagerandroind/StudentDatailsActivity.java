@@ -28,11 +28,11 @@ public class StudentDatailsActivity extends AppCompatActivity {
         String address = intent.getStringExtra("address");
         String telefone = intent.getStringExtra("tel");
 
-        binding.tvDName.setText(name);
-        binding.tvDge.setText(String.valueOf(age));
-        binding.tvDSex.setText(sex);
-        binding.tvDAddress.setText(address);
-        binding.ttvDTel.setText(telefone);
+        binding.etDName.setText(name);
+        binding.etDge.setText(String.valueOf(age));
+        binding.etDSex.setText(sex);
+        binding.etDAddress.setText(address);
+        binding.etDTel.setText(telefone);
 
          binding.btnDelete.setOnClickListener(v -> {
                 deleteStudent();

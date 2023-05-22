@@ -5,41 +5,40 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvDName"
+    <EditText
+        android:id="@+id/etDName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/tvDge"
+    <EditText
+        android:id="@+id/etDge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/tvDSex"
+    <EditText
+        android:id="@+id/etDSex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/tvDAddress"
+    <EditText
+        android:id="@+id/etDAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/ttvDTel"
+    <EditText
+        android:id="@+id/etDTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/black" />
-
 
     <Button
         android:id="@+id/btnUpdate"
