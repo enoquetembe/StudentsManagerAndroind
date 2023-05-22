@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
     <EditText
         android:id="@+id/etDName"
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         android:textColor="@android:color/black" />
 
     <EditText
-        android:id="@+id/etDge"
+        android:id="@+id/etDAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
@@ -27,7 +28,7 @@
         android:textColor="@android:color/black" />
 
     <EditText
-        android:id="@+id/etDAddress"
+        android:id="@+id/etDAdress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"

@@ -12,7 +12,10 @@ public class StudentDatailsActivity extends AppCompatActivity {
 
     private ActivityStudentDatailsBinding binding;
     private String studentName;
+
+    Student student;
     private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +23,11 @@ public class StudentDatailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         databaseHelper = new DatabaseHelper(this);
-
+        new Student();
         binding.etDName.setEnabled(false);
-        binding.etDge.setEnabled(false);;
+        binding.etDAge.setEnabled(false);;
         binding.etDSex.setEnabled(false);;
-        binding.etDAddress.setEnabled(false);
+        binding.etDAdress.setEnabled(false);
         binding.etDTel.setEnabled(false);
 
         Intent intent = getIntent();
@@ -33,14 +36,13 @@ public class StudentDatailsActivity extends AppCompatActivity {
         int age = intent.getIntExtra("age", 0);
         String sex = intent.getStringExtra("sex");
         String address = intent.getStringExtra("address");
-        String telefone = intent.getStringExtra("tel");
+        int tel = intent.getIntExtra("tel", 0);
 
         binding.etDName.setText(name);
-        binding.etDge.setText(String.valueOf(age));
+        binding.etDAge.setText(String.valueOf(age));
         binding.etDSex.setText(sex);
-        binding.etDAddress.setText(address);
-        binding.etDTel.setText(telefone);
-
+        binding.etDAdress.setText(address);
+        binding.etDTel.setText(String.valueOf(tel));
 
 
          binding.btnDelete.setOnClickListener(v -> {
@@ -49,9 +51,9 @@ public class StudentDatailsActivity extends AppCompatActivity {
 
         binding.btnUpdate.setOnClickListener(v -> {
             binding.etDName.setEnabled(true);
-            binding.etDge.setEnabled(true);;
+            binding.etDAge.setEnabled(true);;
             binding.etDSex.setEnabled(true);;
-            binding.etDAddress.setEnabled(true);
+            binding.etDAdress.setEnabled(true);
             binding.etDTel.setEnabled(true);
 
             binding.btnUpdate.setClickable(false);
@@ -70,16 +72,19 @@ public class StudentDatailsActivity extends AppCompatActivity {
         this.finish();
     }
 
-    private void updateStudent() {
-        String name = binding.etDName.getText().toString();
-        int age = Integer.parseInt(binding.etDge.getText().toString());
-        String gender = binding.etDSex.getText().toString();
-        String address = binding.etDAddress.getText().toString();
-        String telefone = binding.etDTel.getText().toString();
 
-        databaseHelper.update(name, age, gender, address, telefone);
+    private void updateStudent() {
+        String name = binding.etDName.getText().toString().trim();
+        int age = Integer.parseInt(binding.etDAge.getText().toString().trim());
+        String sex = binding.etDSex.getText().toString().trim();
+        String address = binding.etDAdress.getText().toString().trim();
+        int telefone = Integer.parseInt(binding.etDTel.getText().toString().trim());
+
+        databaseHelper.update(name, age, sex, address, telefone);
 
         Toast.makeText(this, "Estudante atualizado com sucesso", Toast.LENGTH_SHORT).show();
+        finish();
     }
+
 
 }

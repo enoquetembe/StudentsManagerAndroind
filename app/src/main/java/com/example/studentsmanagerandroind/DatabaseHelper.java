@@ -96,18 +96,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void update(String name, int age, String gender, String address, String telefone) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void update(String name, int age, String gender, String address, int telefone) {
+        SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NOME, name);
         values.put(COLUMN_IDADE, age);
         values.put(COLUMN_SEXO, gender);
         values.put(COLUMN_MORADA, address);
         values.put(COLUMN_TELEFONE, telefone);
 
-        db.update(TABLE_ALUNOS, values, COLUMN_NOME + " = ?", new String[]{name});
-        db.close();
+        String whereClause = "name = ?";
+        String[] whereArgs = { name };
+
+        db.update(TABLE_ALUNOS, values, whereClause, whereArgs);
     }
 }
 
